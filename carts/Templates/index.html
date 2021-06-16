@@ -1,0 +1,50 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Demo</title>
+</head>
+<body>
+    
+
+<br><br>
+<br>
+<div class="container text-center  bg-info">
+    
+
+<div class="row mt-5">
+    
+
+    {% for i in product %}
+    <div class="col-md-3 mt-5 card">           <div class="card-body">
+        <img src="{{ i.poster.url }}" class="img-fluid" style="height:200px; width:200px; object-fit: contain;" alt="" srcset="">
+
+    <p><a href=" {% url 'productview' i.slug %}  ">{{i.name}}</a> </p>
+</div>
+</div>
+    {% endfor %}
+    </div>
+</div>
+<br><br>
+<br>
+<footer>
+    <div class="container">
+<p><a class="btn btn-info"  href=" {% url 'mycart' %}  ">My Cart</a> </p>
+<p><a class="btn btn-danger" href=" {% url 'emptycart' %}  ">Empty Cart</a> </p>
+</div>
+</footer>
+</body>
+</html>
